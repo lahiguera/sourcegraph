@@ -1,0 +1,12 @@
+{
+  "id": 147438534,
+  "name": "web",
+  "config": {
+   "url": "https://localhost:3000",
+   "content_type": "json",
+   "secret": "********"
+  },
+  "events": [
+   "push"
+  ]
+ }

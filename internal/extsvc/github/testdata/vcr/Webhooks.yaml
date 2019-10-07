@@ -1,0 +1,241 @@
+---
+version: 1
+interactions:
+- request:
+    body: '{"id":0,"name":"web","config":{"url":"https://localhost:3000","content_type":"json","secret":"foobar"},"events":["push"]}'
+    form: {}
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+    url: https://api.github.com/orgs/sourcegraph/hooks
+    method: POST
+  response:
+    body: '{"message":"Not Found","documentation_url":"https://developer.github.com/v3/orgs/hooks/#create-a-hook"}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type
+      Content-Security-Policy:
+      - default-src 'none'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 09 Oct 2019 12:04:49 GMT
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Server:
+      - GitHub.com
+      Status:
+      - 404 Not Found
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Accepted-Oauth-Scopes:
+      - admin:org_hook
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Github-Request-Id:
+      - 5574:427C7:A46BEFA:C761F03:5D9DCCE1
+      X-Oauth-Scopes:
+      - admin:org_hook, admin:repo_hook, repo
+      X-Ratelimit-Limit:
+      - "5000"
+      X-Ratelimit-Remaining:
+      - "4941"
+      X-Ratelimit-Reset:
+      - "1570625067"
+      X-Xss-Protection:
+      - 1; mode=block
+    status: 404 Not Found
+    code: 404
+    duration: ""
+- request:
+    body: '{"id":0,"name":"web","config":{"url":"https://localhost:3000","content_type":"json","secret":"foobar"},"events":["push"]}'
+    form: {}
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+    url: https://api.github.com/orgs/oklog/hooks
+    method: POST
+  response:
+    body: '{"type":"Organization","id":147438534,"name":"web","active":true,"events":["push"],"config":{"url":"https://localhost:3000","content_type":"json","secret":"********","insecure_ssl":"0"},"updated_at":"2019-10-09T12:04:49Z","created_at":"2019-10-09T12:04:49Z","url":"https://api.github.com/orgs/oklog/hooks/147438534","ping_url":"https://api.github.com/orgs/oklog/hooks/147438534/pings"}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Content-Length:
+      - "385"
+      Content-Security-Policy:
+      - default-src 'none'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 09 Oct 2019 12:04:49 GMT
+      Etag:
+      - '"6cbf244b6f28bb78203c1ea25151f05a"'
+      Location:
+      - https://api.github.com/orgs/oklog/hooks/147438534
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Server:
+      - GitHub.com
+      Status:
+      - 201 Created
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Accepted-Oauth-Scopes:
+      - admin:org_hook
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Github-Request-Id:
+      - 5574:427C7:A46BF24:C761F28:5D9DCCE1
+      X-Oauth-Scopes:
+      - admin:org_hook, admin:repo_hook, repo
+      X-Ratelimit-Limit:
+      - "5000"
+      X-Ratelimit-Remaining:
+      - "4940"
+      X-Ratelimit-Reset:
+      - "1570625067"
+      X-Xss-Protection:
+      - 1; mode=block
+    status: 201 Created
+    code: 201
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      Accept:
+      - application/vnd.github.jean-grey-preview+json,application/vnd.github.mercy-preview+json
+      Content-Type:
+      - application/json; charset=utf-8
+    url: https://api.github.com/orgs/sourcegraph/hooks
+    method: GET
+  response:
+    body: '{"message":"Not Found","documentation_url":"https://developer.github.com/v3/orgs/hooks/#list-hooks"}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type
+      Content-Security-Policy:
+      - default-src 'none'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 09 Oct 2019 12:04:50 GMT
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Server:
+      - GitHub.com
+      Status:
+      - 404 Not Found
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Accepted-Oauth-Scopes:
+      - admin:org_hook
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Github-Media-Type:
+      - github.v3; param=jean-grey-preview; format=json, github.mercy-preview; format=json
+      X-Github-Request-Id:
+      - 5574:427C7:A46BF53:C761F69:5D9DCCE1
+      X-Oauth-Scopes:
+      - admin:org_hook, admin:repo_hook, repo
+      X-Ratelimit-Limit:
+      - "5000"
+      X-Ratelimit-Remaining:
+      - "4939"
+      X-Ratelimit-Reset:
+      - "1570625067"
+      X-Xss-Protection:
+      - 1; mode=block
+    status: 404 Not Found
+    code: 404
+    duration: ""
+- request:
+    body: ""
+    form: {}
+    headers:
+      Accept:
+      - application/vnd.github.jean-grey-preview+json,application/vnd.github.mercy-preview+json
+      Content-Type:
+      - application/json; charset=utf-8
+    url: https://api.github.com/orgs/oklog/hooks
+    method: GET
+  response:
+    body: '[{"type":"Organization","id":147438534,"name":"web","active":true,"events":["push"],"config":{"content_type":"json","secret":"********","url":"https://localhost:3000","insecure_ssl":"0"},"updated_at":"2019-10-09T12:04:49Z","created_at":"2019-10-09T12:04:49Z","url":"https://api.github.com/orgs/oklog/hooks/147438534","ping_url":"https://api.github.com/orgs/oklog/hooks/147438534/pings"}]'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Content-Security-Policy:
+      - default-src 'none'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 09 Oct 2019 12:04:50 GMT
+      Etag:
+      - W/"d282b15484f89ac902e6be8832579409"
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Accepted-Oauth-Scopes:
+      - admin:org_hook
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - deny
+      X-Github-Media-Type:
+      - github.v3; param=jean-grey-preview; format=json, github.mercy-preview; format=json
+      X-Github-Request-Id:
+      - 5574:427C7:A46BFD3:C76200F:5D9DCCE2
+      X-Oauth-Scopes:
+      - admin:org_hook, admin:repo_hook, repo
+      X-Ratelimit-Limit:
+      - "5000"
+      X-Ratelimit-Remaining:
+      - "4938"
+      X-Ratelimit-Reset:
+      - "1570625067"
+      X-Xss-Protection:
+      - 1; mode=block
+    status: 200 OK
+    code: 200
+    duration: ""

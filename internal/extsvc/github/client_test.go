@@ -152,29 +152,145 @@ func TestClient_LoadPullRequests(t *testing.T) {
 				return
 			}
 
-			data, err := json.MarshalIndent(tc.prs, " ", " ")
-			if err != nil {
-				t.Fatal(err)
-			}
-
-			path := "testdata/golden/LoadPullRequests-" + strconv.Itoa(i)
-			if *update {
-				if err = ioutil.WriteFile(path, data, 0640); err != nil {
-					t.Fatalf("failed to update golden file %q: %s", path, err)
-				}
-			}
-
-			golden, err := ioutil.ReadFile(path)
-			if err != nil {
-				t.Fatalf("failed to read golden file %q: %s", path, err)
-			}
-
-			if have, want := string(data), string(golden); have != want {
-				dmp := diffmatchpatch.New()
-				diffs := dmp.DiffMain(have, want, false)
-				t.Error(dmp.DiffPrettyText(diffs))
-			}
+			assertGolden(t,
+				"testdata/golden/LoadPullRequests-"+strconv.Itoa(i),
+				*update,
+				tc.prs,
+			)
 		})
+	}
+}
+
+func TestClient_Webhooks(t *testing.T) {
+	cli, save := newClient(t, "Webhooks")
+	defer save()
+
+	t.Run("CreateOrgWebhook", func(t *testing.T) {
+		w := Webhook{
+			Events: []string{"push"},
+			Config: WebhookConfig{
+				URL:         "https://localhost:3000",
+				ContentType: "json",
+				Secret:      "foobar",
+			},
+		}
+
+		for _, tc := range []struct {
+			name string
+			ctx  context.Context
+			w    Webhook
+			org  string
+			err  string
+		}{
+			{
+				name: "unauthorized",
+				org:  "sourcegraph",
+				w:    w,
+				err:  "request to http://github-proxy/orgs/sourcegraph/hooks returned status 404: Not Found",
+			},
+			{
+				name: "success",
+				w:    w,
+				org:  "oklog",
+			},
+		} {
+			tc := tc
+			t.Run(tc.name, func(t *testing.T) {
+				if tc.ctx == nil {
+					tc.ctx = context.Background()
+				}
+
+				if tc.err == "" {
+					tc.err = "<nil>"
+				}
+
+				err := cli.CreateOrgWebhook(tc.ctx, tc.org, &tc.w)
+				if have, want := fmt.Sprint(err), tc.err; have != want {
+					t.Errorf("error:\nhave: %q\nwant: %q", have, want)
+				}
+
+				if err != nil {
+					return
+				}
+
+				assertGolden(t,
+					"testdata/golden/CreateOrgWebhook-"+tc.name,
+					*update,
+					&tc.w,
+				)
+			})
+		}
+	})
+
+	t.Run("ListOrgWebhooks", func(t *testing.T) {
+		for _, tc := range []struct {
+			name string
+			ctx  context.Context
+			org  string
+			err  string
+		}{
+			{
+				name: "unauthorized",
+				org:  "sourcegraph",
+				err:  "request to http://github-proxy/orgs/sourcegraph/hooks returned status 404: Not Found",
+			},
+			{
+				name: "success",
+				org:  "oklog",
+			},
+		} {
+			tc := tc
+			t.Run(tc.name, func(t *testing.T) {
+				if tc.ctx == nil {
+					tc.ctx = context.Background()
+				}
+
+				if tc.err == "" {
+					tc.err = "<nil>"
+				}
+
+				ws, err := cli.ListOrgWebhooks(tc.ctx, tc.org)
+				if have, want := fmt.Sprint(err), tc.err; have != want {
+					t.Errorf("error:\nhave: %q\nwant: %q", have, want)
+				}
+
+				if err != nil {
+					return
+				}
+
+				assertGolden(t,
+					"testdata/golden/ListOrgWebhooks-"+tc.name,
+					*update,
+					ws,
+				)
+			})
+		}
+	})
+}
+
+func assertGolden(t testing.TB, path string, update bool, want interface{}) {
+	t.Helper()
+
+	data, err := json.MarshalIndent(want, " ", " ")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if update {
+		if err = ioutil.WriteFile(path, data, 0640); err != nil {
+			t.Fatalf("failed to update golden file %q: %s", path, err)
+		}
+	}
+
+	golden, err := ioutil.ReadFile(path)
+	if err != nil {
+		t.Fatalf("failed to read golden file %q: %s", path, err)
+	}
+
+	if have, want := string(data), string(golden); have != want {
+		dmp := diffmatchpatch.New()
+		diffs := dmp.DiffMain(have, want, false)
+		t.Error(dmp.DiffPrettyText(diffs))
 	}
 }
 
