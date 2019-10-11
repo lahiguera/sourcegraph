@@ -122,58 +122,24 @@ describe('Cache', () => {
         const quuxFactory = () => Promise.resolve('quux')
         const honkFactory = () => Promise.resolve('honk')
         const ronkFactory = () => Promise.resolve('ronk')
+        const valid = () => true
 
-        await cache.withValue(
-            'foo',
-            fooFactory,
-            () => true,
-            async () => {
-                await cache.withValue(
-                    'bar',
-                    barFactory,
-                    () => true,
-                    async () => {
-                        await cache.withValue(
-                            'baz',
-                            bazFactory,
-                            () => true,
-                            async () => {
-                                await cache.withValue(
-                                    'bonk',
-                                    bonkFactory,
-                                    () => true,
-                                    async () => {
-                                        await cache.withValue(
-                                            'quux',
-                                            quuxFactory,
-                                            () => true,
-                                            async () => {
-                                                // Sixth entry, but nothing to evict (all held)
-                                                await cache.withValue(
-                                                    'honk',
-                                                    honkFactory,
-                                                    () => true,
-                                                    () => Promise.resolve()
-                                                )
+        await cache.withValue('foo', fooFactory, valid, async () => {
+            await cache.withValue('bar', barFactory, valid, async () => {
+                await cache.withValue('baz', bazFactory, valid, async () => {
+                    await cache.withValue('bonk', bonkFactory, valid, async () => {
+                        await cache.withValue('quux', quuxFactory, valid, async () => {
+                            // Sixth entry, but nothing to evict (all held)
+                            await cache.withValue('honk', honkFactory, valid, () => Promise.resolve())
 
-                                                // Seventh entry, honk can now be removed as it's the least
-                                                // recently used value that's not currently under a read lock.
-                                                await cache.withValue(
-                                                    'ronk',
-                                                    ronkFactory,
-                                                    () => true,
-                                                    () => Promise.resolve()
-                                                )
-                                            }
-                                        )
-                                    }
-                                )
-                            }
-                        )
-                    }
-                )
-            }
-        )
+                            // Seventh entry, honk can now be removed as it's the least
+                            // recently used value that's not currently under a read lock.
+                            await cache.withValue('ronk', ronkFactory, valid, () => Promise.resolve())
+                        })
+                    })
+                })
+            })
+        })
 
         // Release and remove the least recently used
 
