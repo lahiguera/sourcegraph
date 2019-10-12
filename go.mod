@@ -30,7 +30,7 @@ require (
 	github.com/dlclark/regexp2 v1.2.0 // indirect
 	github.com/dnaeon/go-vcr v1.0.1
 	github.com/docker/distribution v2.7.1+incompatible // indirect
-	github.com/docker/docker v0.7.3-0.20190817195342-4760db040282
+	github.com/docker/docker v1.13.1
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/emersion/go-imap v1.0.0
 	github.com/emersion/go-sasl v0.0.0-20190817083125-240c8404624e // indirect
@@ -69,7 +69,7 @@ require (
 	github.com/gomodule/oauth1 v0.0.0-20181215000758-9a59ed3b0a84
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/google/go-cmp v0.3.1
-	github.com/google/go-github v17.0.0+incompatible
+	github.com/google/go-github v28.1.1+incompatible
 	github.com/google/go-querystring v1.0.0
 	github.com/google/uuid v1.1.1
 	github.com/google/zoekt v0.0.0-20190910091447-b1730d8e0cc4
@@ -128,7 +128,7 @@ require (
 	github.com/russellhaering/gosaml2 v0.3.2-0.20190403162508-649841e7f48a
 	github.com/russellhaering/goxmldsig v0.0.0-20180430223755-7acd5e4a6ef7
 	github.com/russross/blackfriday v2.0.0+incompatible // indirect
-	github.com/securego/gosec v0.0.0-20191008095658-28c1128b7336 // indirect
+	github.com/securego/gosec/v2 v2.1.0 // indirect
 	github.com/segmentio/fasthash v1.0.1
 	github.com/sergi/go-diff v1.0.0
 	github.com/shurcooL/github_flavored_markdown v0.0.0-20181002035957-2122de532470
@@ -203,7 +203,7 @@ replace (
 	github.com/uber/gonduit => github.com/sourcegraph/gonduit v0.4.0
 )
 
-replace github.com/dghubble/gologin => github.com/sourcegraph/gologin v1.0.2-0.20181110030308-c6f1b62954d8
+replace github.com/dghubble/gologin => /v2github.com/sourcegraph/gologin v2.0.0
 
 replace (
 	github.com/russross/blackfriday => github.com/russross/blackfriday v1.5.2
