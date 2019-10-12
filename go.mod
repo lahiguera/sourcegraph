@@ -25,12 +25,12 @@ require (
 	github.com/crewjam/saml v0.0.0-20190521120225-344d075952c9
 	github.com/davecgh/go-spew v1.1.1
 	github.com/daviddengcn/go-colortext v0.0.0-20180409174941-186a3d44e920
-	github.com/dghubble/gologin v2.1.0+incompatible
+	github.com/dghubble/gologin v2.2.0+incompatible
 	github.com/dhui/dktest v0.3.1 // indirect
 	github.com/dlclark/regexp2 v1.2.0 // indirect
 	github.com/dnaeon/go-vcr v1.0.1
 	github.com/docker/distribution v2.7.1+incompatible // indirect
-	github.com/docker/docker v0.7.3-0.20190817195342-4760db040282
+	github.com/docker/docker v0.12.0
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/emersion/go-imap v1.0.0
 	github.com/emersion/go-sasl v0.0.0-20190817083125-240c8404624e // indirect
@@ -94,7 +94,7 @@ require (
 	github.com/karlseguin/expect v1.0.1 // indirect
 	github.com/karlseguin/typed v1.1.7 // indirect
 	github.com/karrick/godirwalk v1.12.0
-	github.com/karrick/tparse v2.4.2+incompatible
+	github.com/karrick/tparse v2.7.0+incompatible
 	github.com/keegancsmith/sqlf v1.1.0
 	github.com/keegancsmith/tmpfriend v0.0.0-20180423180255-86e88902a513
 	github.com/kevinburke/go-bindata v3.14.0+incompatible
@@ -127,7 +127,7 @@ require (
 	github.com/prometheus/client_golang v1.1.0
 	github.com/russellhaering/gosaml2 v0.3.2-0.20190403162508-649841e7f48a
 	github.com/russellhaering/goxmldsig v0.0.0-20180430223755-7acd5e4a6ef7
-	github.com/russross/blackfriday v2.0.0+incompatible // indirect
+	github.com/russross/blackfriday v2.0.1 // indirect
 	github.com/securego/gosec v0.0.0-20191008095658-28c1128b7336 // indirect
 	github.com/segmentio/fasthash v1.0.1
 	github.com/sergi/go-diff v1.0.0
@@ -154,7 +154,7 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/sqs/httpgzip v0.0.0-20180622165210-91da61ed4dff
 	github.com/src-d/enry/v2 v2.1.0
-	github.com/stripe/stripe-go v65.1.0+incompatible
+	github.com/stripe/stripe-go v65.1.1+incompatible
 	github.com/temoto/robotstxt v1.1.1
 	github.com/uber-go/atomic v1.4.0 // indirect
 	github.com/uber/gonduit v0.4.1
@@ -162,7 +162,7 @@ require (
 	github.com/uber/jaeger-lib v2.2.0+incompatible
 	github.com/ugorji/go v1.1.7 // indirect
 	github.com/uudashr/gocognit v1.0.0 // indirect
-	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
+	github.com/vmihailenco/msgpack v4.2.0 // indirect
 	github.com/wsxiaoys/terminal v0.0.0-20160513160801-0940f3fc43a0 // indirect
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
@@ -173,15 +173,15 @@ require (
 	go.starlark.net v0.0.0-20190919145610-979af19b165c // indirect
 	go.uber.org/automaxprocs v1.2.0
 	golang.org/x/arch v0.0.0-20190927153633-4e8777c89be4 // indirect
-	golang.org/x/crypto v0.0.0-20191010185427-af544f31c8ac
+	golang.org/x/crypto 87dc89f01550
 	golang.org/x/exp v0.0.0-20191002040644-a1355ae1e2c3 // indirect
 	golang.org/x/lint v0.0.0-20190930215403-16217165b5de // indirect
-	golang.org/x/net v0.0.0-20191009170851-d66e71096ffb
+	golang.org/x/net 491137f69257
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e
 	golang.org/x/sys v0.0.0-20191010194322-b09406accb47
 	golang.org/x/time v0.0.0-20190921001708-c4c64cad1fd0
-	golang.org/x/tools v0.0.0-20191010201905-e5ffc44a6fee
+	golang.org/x/tools 8de300cfc20a
 	google.golang.org/appengine v1.6.5 // indirect
 	google.golang.org/genproto v0.0.0-20191009194640-548a555dbc03 // indirect
 	google.golang.org/grpc v1.24.0 // indirect
@@ -210,4 +210,4 @@ replace (
 	gopkg.in/russross/blackfriday.v2 v2.0.1 => github.com/russross/blackfriday/v2 v2.0.1
 )
 
-replace github.com/golang/lint => golang.org/x/lint v0.0.0-20190409202823-959b441ac422
+replace github.com/golang/lint => golang.org/x/lint 16217165b5de
